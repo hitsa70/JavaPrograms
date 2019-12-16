@@ -12,7 +12,7 @@ public class prime {
 		num=sc.nextInt();
 		
 		
-		for(i=2;i<num/i;i++)
+		for(i=2;i<=num/i;i++)
 		{
 			if(num%i==0)
 			{c=1;
