@@ -1,4 +1,4 @@
-//Program to check a number is prime or not
+//Program to check a number is prime or not WITH BEST TIME COMPLEXITY
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class prime {
 		num=sc.nextInt();
 		
 		
-		for(i=2;i<=num/i;i++)
+		for(i=2;i<=Math.sqrt(num);i++)
 		{
 			if(num%i==0)
 			{c=1;
