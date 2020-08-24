@@ -1,0 +1,72 @@
+/*1. PK’s World Tour
+Amir Khan sets out in a world tour to N countries. He has planned an itinerary for the same.
+He strictly follows itinerary and visit the countries in same order as per the input. There are
+three modes of transport: Plane, Ship and Helicopter. He never prefers to travel in by the
+same mode of transport consecutively as it is boring and monotonous. But the cost ‘C’ varies
+for each journey depending on the places and mode of transport.
+Minimize the total world tour travel cost satisfying the condition.
+Input:
+The first line has N number of country.
+The next N lines contain 3 numbers separated by space that represents the cost for the three
+modes of transport- plane, ship and helicopter.
+Output:
+Print the minimum total world tour travel cost.
+Constraints:
+1<=N<=25
+1<=cost of travel <=1000
+Example:
+Input:
+3
+100 70 50
+ 80 40 30
+200 150 80
+Output: 170
+*/
+
+
+
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n=sc.nextInt();
+		int[][] arr=new int[n][3];
+		
+		
+		for(int i=0;i<n;i++)
+		    for(int j=0;j<3;j++)
+		    arr[i][j]=sc.nextInt();
+	
+	    
+	    int minCost=Integer.MAX_VALUE,op=0;
+	    if(n==1)
+	    {
+	        op=Math.min(arr[0][0],(Math.min( arr[0][1],arr[0][2])));
+	    }
+	    else
+	    {
+		for(int i=0;i<n-1;i++)
+		{   for(int j=i;j<3;j++)
+		    minCost=Math.min(minCost , ( Math.min( (  arr[i][j]+arr[i+1][(j+1)%3]  ),(  arr[i][j]+arr[i+1][(j+2)%3]  )  )  )  );
+		
+		    
+		    for(int k=0;k<3;k++)
+		    arr[i+1][k]=minCost;
+		    
+		    
+		    
+		  op=minCost;
+		    minCost=Integer.MAX_VALUE;
+		}
+	    } 
+		   System.out.println(op);
+		    
+	}
+}
